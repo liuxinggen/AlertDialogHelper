@@ -4,12 +4,50 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.gengen.alertdialog.alertdialoghelper.MainActivity">
 
-    <Button
-        android:onClick="click"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="弹出对话框" />
+        android:layout_height="match_parent"
+
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btn_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="弹出对话框（标题和内容）" />
+
+            <Button
+                android:id="@+id/btn_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="弹出对话框（标题、内容和图标）" />
+
+            <Button
+                android:id="@+id/btn_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="弹出对话框（标题、内容和按钮）" />
+
+            <Button
+                android:id="@+id/btn_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="弹出对话框（自定义1）" />
+
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
 
 </LinearLayout>

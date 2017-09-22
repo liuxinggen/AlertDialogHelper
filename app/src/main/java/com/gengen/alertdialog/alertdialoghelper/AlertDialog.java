@@ -1,7 +1,7 @@
 /**
  * 系统  综合办公开发平台-核心业务系统
- * 项目  ioop-c-android 
- * 创建时间  2014-9-22 下午6:11:54 
+ * 项目  ioop-c-android
+ * 创建时间  2014-9-22 下午6:11:54
  * Copyright (c) 2014, 公司 All rights reserved.
  * 公司 专有/保密源代码,未经许可禁止任何人通过任何* 渠道使用、修改源代码.
  */
@@ -19,14 +19,14 @@ import android.widget.TextView;
 
 
 /**
- * 类名: AlertDialog <br/> 
- * 功能: 自定义AlertDialog类. <br/> 
- * 创建日期: 2014-9-22 下午6:11:54 <br/> 
+ * 类名: AlertDialog <br/>
+ * 功能: 自定义AlertDialog类. <br/>
+ * 创建日期: 2014-9-22 下午6:11:54 <br/>
  *
  * @author Administrator
  * @version V3.0
  * @since Jdk 1.6
- * @see       
+ * @see
  */
 public class AlertDialog {
 	/** 上下文参数 */
@@ -49,7 +49,7 @@ public class AlertDialog {
 	private Button mRightBtn;
 	/** 全局的对话框变量 */
 	private android.app.AlertDialog mDialog;
-    
+
 	public AlertDialog(Context context){
 		mContext = context;
 		mDialog = new android.app.AlertDialog.Builder(mContext).create();
@@ -58,7 +58,7 @@ public class AlertDialog {
 		//替换整个对话框的布局
 		Window window = mDialog.getWindow();
 		window.setContentView(R.layout.alert_dialog_new);
-		
+
 		//获取自定义布局的控件
 		mIconIV = (ImageView)window.findViewById(R.id.alert_dialog_icon_iv);
 		mTitleTV = (TextView)window.findViewById(R.id.alert_dialog_title_tv);
@@ -70,16 +70,17 @@ public class AlertDialog {
 		mRightBtn = (Button)window.findViewById(R.id.alert_dialog_right_btn);
 	}
 	/**
-	 * setIcon:设置标题左边图标的资源ID. <br/> 
+	 * setIcon:设置标题左边图标的资源ID. <br/>
 	 * @author wchhuangya
 	 * @param resId	-	图标的图片资源ID
 	 */
 	public AlertDialog setIcon(int resId){
+		mIconIV.setVisibility(View.VISIBLE);
 		mIconIV.setBackgroundResource(resId);
 		return this;
 	}
 	/**
-	 * setIcon:设置标题左边图标的资源ID. <br/> 
+	 * setIcon:设置标题左边图标的资源ID. <br/>
 	 * @author wchhuangya
 	 * @param title	-	标题
 	 */
@@ -88,7 +89,7 @@ public class AlertDialog {
 		return this;
 	}
 	/**
-	 * setIcon:设置标题. <br/> 
+	 * setIcon:设置标题. <br/>
 	 * @author wchhuangya
 	 * @param msg	-	内容
 	 */
@@ -97,7 +98,7 @@ public class AlertDialog {
 		return this;
 	}
 	/**
-	 * setCustomView:设置自定义布局. <br/> 
+	 * setCustomView:设置自定义布局. <br/>
 	 * @author wchhuangya
 	 * @param resId	-	自定义布局的ID
 	 */
@@ -107,10 +108,30 @@ public class AlertDialog {
 			mCustomFL.removeAllViews();
 		mDefaultLL.setVisibility(View.GONE);
 		mCustomFL.addView(view);
+
 		return this;
 	}
 	/**
-	 * getSingleView:(获取自定义布局里的某一控件). <br/> 
+	 * setCustomView:设置自定义布局. <br/>
+	 * @author wchhuangya
+	 * @param resId	-	自定义布局的ID
+	 */
+	public AlertDialog setCustomView1(Context context,int resId){
+		View view = View.inflate(mContext, resId, null);
+		mContext = context;
+		mDialog = new android.app.AlertDialog.Builder(mContext).create();
+		mDialog.setView(View.inflate(context, resId, null));
+		mDialog.show();
+		//替换整个对话框的布局
+		Window window = mDialog.getWindow();
+		window.setContentView(R.layout.alert_dialog_new);
+
+		return this;
+	}
+
+
+	/**
+	 * getSingleView:(获取自定义布局里的某一控件). <br/>
 	 * @author wuhr
 	 * @param resId
 	 * @return
@@ -123,7 +144,7 @@ public class AlertDialog {
 		}
 	}
 	/**
-	 * setLeftBtnText:设置左边按钮的文字. <br/> 
+	 * setLeftBtnText:设置左边按钮的文字. <br/>
 	 * @author wchhuangya	-	按钮的文字
 	 */
 	public AlertDialog setLeftBtnText(String text){
@@ -132,7 +153,7 @@ public class AlertDialog {
 		return this;
 	}
 	/**
-	 * setLeftBtnText:设置中间按钮的文字. <br/> 
+	 * setLeftBtnText:设置中间按钮的文字. <br/>
 	 * @author wchhuangya	-	按钮的文字
 	 */
 	public AlertDialog setMiddleBtnText(String text){
@@ -141,7 +162,7 @@ public class AlertDialog {
 		return this;
 	}
 	/**
-	 * setLeftBtnText:设置右边按钮的文字. <br/> 
+	 * setLeftBtnText:设置右边按钮的文字. <br/>
 	 * @author wchhuangya	-	按钮的文字
 	 */
 	public AlertDialog setRightBtnText(String text){
@@ -150,7 +171,7 @@ public class AlertDialog {
 		return this;
 	}
 	/**
-	 * setLeftBtnListener:设置左边按钮的事件监听. <br/> 
+	 * setLeftBtnListener:设置左边按钮的事件监听. <br/>
 	 * @author wchhuangya
 	 * @param listener	-	事件监听
 	 */
@@ -159,7 +180,7 @@ public class AlertDialog {
 		return this;
 	}
 	/**
-	 * setLeftBtnListener:设置中间按钮的事件监听. <br/> 
+	 * setLeftBtnListener:设置中间按钮的事件监听. <br/>
 	 * @author wchhuangya
 	 * @param listener	-	事件监听
 	 */
@@ -168,7 +189,7 @@ public class AlertDialog {
 		return this;
 	}
 	/**
-	 * setLeftBtnListener:设置右边按钮的事件监听. <br/> 
+	 * setLeftBtnListener:设置右边按钮的事件监听. <br/>
 	 * @author wchhuangya
 	 * @param listener	-	事件监听
 	 */
@@ -177,7 +198,7 @@ public class AlertDialog {
 		return this;
 	}
 	/**
-	 * isCancelable:是否可以取消对话框. <br/> 
+	 * isCancelable:是否可以取消对话框. <br/>
 	 * @author wchhuangya
 	 * @param isCancelable	-	true：可以取消；false：不能取消；
 	 * @return
@@ -187,7 +208,7 @@ public class AlertDialog {
 		return this;
 	}
 	/**
-	 * isCancelable:点击对话框外的区域是否可以取消对话框. <br/> 
+	 * isCancelable:点击对话框外的区域是否可以取消对话框. <br/>
 	 * @author wchhuangya
 	 * @param isCancelableOnTouchOutside	-	true：可以取消；false：不能取消；
 	 * @return
@@ -197,7 +218,7 @@ public class AlertDialog {
 		return this;
 	}
 	/**
-	 * dismiss:让对话框消失的方法. <br/> 
+	 * dismiss:让对话框消失的方法. <br/>
 	 * @author wchhuangya
 	 */
 	public void dismiss(){
